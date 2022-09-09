@@ -1,0 +1,10 @@
+[package]
+name = "sexpression_editor"
+version = "0.1.0"
+edition = "2021"
+
+
+[dependencies]
+crossterm="0.25"
+tui="0.19"
+clap="3.2"
