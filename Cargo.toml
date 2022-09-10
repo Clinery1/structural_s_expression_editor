@@ -8,3 +8,4 @@ edition = "2021"
 crossterm="0.25"
 tui="0.19"
 clap="3.2"
+s_expression_parser={git="https://github.com/Clinery1/s_expression_parser"}
