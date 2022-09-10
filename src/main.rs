@@ -483,7 +483,7 @@ fn main() {
                         changed=true;
                         saved=false;
                     },
-                    KeyCode::Char('"') if mode.is_structural()=>{
+                    KeyCode::Char('"')|KeyCode::Char('\'') if mode.is_structural()=>{
                         let obj=Object::String(String::new());
                         if mode.len()>0&&*cursor.last().unwrap()<mode.len() {*cursor.last_mut().unwrap()+=1}
                         if cursor.len()==1 {
