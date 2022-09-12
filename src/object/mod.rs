@@ -462,7 +462,7 @@ impl Object {
                                             1,
                                             style,
                                         );
-                                        first.render(colors,line,level,1,buf,if cursor[0]==0 {Some(&cursor[1..])}else{None});
+                                        first.render(colors,line,level,offset+1,buf,if cursor[0]==0 {Some(&cursor[1..])}else{None});
                                         *line+=1;
                                         let mut last_column=last.render(colors,line,level+1,0,buf,if cursor[0]==1 {Some(&cursor[1..])}else{None});
                                         if cursor==&[items.len()] {
@@ -497,7 +497,7 @@ impl Object {
                                             1,
                                             style_rev,
                                         );
-                                        first.render(colors,line,level,1,buf,None);
+                                        first.render(colors,line,level,offset+1,buf,None);
                                         *line+=1;
                                         let last_column=last.render(colors,line,level+1,0,buf,None);
                                         buf.set_stringn(
@@ -517,7 +517,7 @@ impl Object {
                                         1,
                                         style,
                                     );
-                                    first.render(colors,line,level,1,buf,None);
+                                    first.render(colors,line,level,offset+1,buf,None);
                                     *line+=1;
                                     let last_column=last.render(colors,line,level+1,0,buf,None);
                                     buf.set_stringn(
@@ -540,7 +540,7 @@ impl Object {
                                             1,
                                             style,
                                         );
-                                        let mut last_column=first.render(colors,line,level,1,buf,if cursor[0]==0 {Some(&cursor[1..])}else{None})+1;
+                                        let mut last_column=first.render(colors,line,level,offset+1,buf,if cursor[0]==0 {Some(&cursor[1..])}else{None})+1;
                                         last_column=last.render(colors,line,level,last_column-indent,buf,if cursor[0]==1 {Some(&cursor[1..])}else{None});
                                         if cursor==&[items.len()] {
                                             last_column=buf.set_stringn(
@@ -574,7 +574,7 @@ impl Object {
                                             1,
                                             style_rev,
                                         );
-                                        let mut last_column=first.render(colors,line,level,1,buf,None)+1;
+                                        let mut last_column=first.render(colors,line,level,offset+1,buf,None)+1;
                                         last_column=last.render(colors,line,level,last_column-indent,buf,None);
                                         buf.set_stringn(
                                             last_column,
@@ -593,7 +593,7 @@ impl Object {
                                         1,
                                         style,
                                     );
-                                    let mut last_column=first.render(colors,line,level,1,buf,None)+1;
+                                    let mut last_column=first.render(colors,line,level,offset+1,buf,None)+1;
                                     last_column=last.render(colors,line,level,last_column-indent,buf,None);
                                     buf.set_stringn(
                                         last_column,
@@ -617,7 +617,7 @@ impl Object {
                                     1,
                                     style,
                                 );
-                                let mut last_column=first.render(colors,line,level,1,buf,if cursor[0]==0 {Some(&cursor[1..])}else{None});
+                                let mut last_column=first.render(colors,line,level,offset+1,buf,if cursor[0]==0 {Some(&cursor[1..])}else{None});
                                 for (i,item) in rest.iter().enumerate() {
                                     *line+=1;
                                     last_column=item.render(colors,line,level+1,0,buf,if cursor[0]==(i+1) {Some(&cursor[1..])}else{None});
@@ -654,7 +654,7 @@ impl Object {
                                     1,
                                     style_rev,
                                 );
-                                let mut last_column=first.render(colors,line,level,1,buf,None);
+                                let mut last_column=first.render(colors,line,level,offset+1,buf,None);
                                 for item in rest {
                                     *line+=1;
                                     last_column=item.render(colors,line,level+1,0,buf,None);
@@ -676,7 +676,7 @@ impl Object {
                                 1,
                                 style,
                             );
-                            let mut last_column=first.render(colors,line,level,1,buf,None);
+                            let mut last_column=first.render(colors,line,level,offset+1,buf,None);
                             for item in rest {
                                 *line+=1;
                                 last_column=item.render(colors,line,level+1,0,buf,None);
